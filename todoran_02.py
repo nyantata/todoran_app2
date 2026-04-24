@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import re
+from io import StringIO
 
 # 都道府県リストを定義（並び替え時に使用）
 prefectures_order = [
@@ -81,7 +82,7 @@ def main():
                 return
 
             # データフレームに変換
-            df = pd.read_html(str(table))[0]
+            df = pd.read_html(StringIO(str(table)))[0]
 
             # 列名の準備
             df_1 = df.columns.values
