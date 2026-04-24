@@ -144,7 +144,7 @@ def main():
             st.dataframe(output_df)
 
             # CSV出力ボタン
-            csv_data = output_df.to_csv(index=False)
+            csv_data = output_df.to_csv(index=False).encode('utf-8-sig')
             filename = f'{table_name}.csv'
             st.download_button(
                 label='CSVファイルをダウンロード',
